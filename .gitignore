@@ -1,1 +1,4 @@
 /target
+#These are the files which will have api keys that is why i am Ignoring them
+*.json
+*.env
