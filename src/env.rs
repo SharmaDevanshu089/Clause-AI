@@ -25,4 +25,5 @@ pub fn conform_env() {
         );
         exit(0);
     }
+    intitalise();
 }
