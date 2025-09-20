@@ -1,11 +1,13 @@
 mod env;
 mod server;
 
-#[macro_use] extern crate rocket;
+#[macro_use]
+extern crate rocket;
 
 const DEBUG: bool = true;
 
-fn main() {
-    //Important Conforms the Env
+#[launch]
+fn rocket() -> _ {
     env::conform_env();
+    server::setup_server()
 }
