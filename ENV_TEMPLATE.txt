@@ -1,0 +1,4 @@
+GEMINI_API_KEY=isrhtbgoeulihgobhirtbgohejbgolesj
+GCP_PROJECT_ID=clause-ai-weiuyb
+=====================================================================
+## this is how the .env file should be , Replace the Api Key With yours key.
