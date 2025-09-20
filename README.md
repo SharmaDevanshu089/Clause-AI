@@ -53,7 +53,7 @@ A big part of this project was making sure it was secure. Rust helps a lot with 
 
 Check out the 3-minute video I made to see Clause AI in action!
 
-(Link to your YouTube/Vimeo video will go here)
+(I will add Later)
 
 ## 🔧 Want to Run It Yourself?
 
