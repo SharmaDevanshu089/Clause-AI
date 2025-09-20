@@ -1,11 +1,7 @@
-//this is the file that will load envirment variable to load API key
 use dotenv::dotenv;
-//this will load the path
-use std::path::Path;
-//for exititng a program instead of panicing
-use std::process::exit;
-//for testing only
 use std::env;
+use std::path::Path;
+use std::process::exit;
 
 const ENV: &str = ".env";
 const DEBUG: bool = true;
