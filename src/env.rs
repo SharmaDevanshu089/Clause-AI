@@ -4,12 +4,23 @@ use dotenv::dotenv;
 use std::path::Path;
 //for exititng a program instead of panicing
 use std::process::exit;
+//for testing only
+use std::env;
 
 const ENV: &str = ".env";
 const DEBUG: bool = true;
 //this will initialise envirment variable
 pub fn intitalise() {
     dotenv().ok();
+    if DEBUG {
+        text();
+    }
+}
+fn text() {
+    if DEBUG {
+        let api = env::var("GEMINI_API_KEY").expect("There is No Api for GEMINI");
+        println!("API Key = {}", api)
+    }
 }
 //this will check if file envirment file exists
 pub fn conform_env() {
