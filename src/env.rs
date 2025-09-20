@@ -12,7 +12,7 @@ pub fn intitalise() {
     dotenv().ok();
 }
 //this will check if file envirment file exists
-pub fn check_if_dot_env_exists() -> bool {
+pub fn conform_env() {
     let path_to_env = Path::new(ENV);
     if DEBUG {
         let path_string = path_to_env.clone().to_string_lossy().into_owned();
@@ -21,8 +21,8 @@ pub fn check_if_dot_env_exists() -> bool {
     let returning_var = path_to_env.exists();
     if !returning_var {
         println!(
-            "There is no Envirment Variable found , Please Create one .env file with google's api key"
+            "There is no Envirment Variable found , Please Create one .env file with google's api key; Check Github On how to Do it . Exititng the Program"
         );
+        exit(0);
     }
-    return returning_var;
 }
