@@ -1,3 +1,3 @@
-fn main() {
-    println!("Hello, world!");
-}
+const DEBUG: bool = true;
+mod env;
+fn main() {}
