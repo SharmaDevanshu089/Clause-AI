@@ -41,3 +41,7 @@ pub fn conform_env() {
     }
     intitalise();
 }
+pub fn get_api_key() -> String {
+    let api = env::var("GEMINI_API_KEY").expect("There is No Api for GEMINI, You can Create One");
+    return api;
+}
