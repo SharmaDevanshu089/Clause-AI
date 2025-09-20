@@ -5,6 +5,7 @@ mod server;
 extern crate rocket;
 
 const DEBUG: bool = true;
+const LOCALE = "asia-south1";
 
 #[launch]
 fn rocket() -> _ {

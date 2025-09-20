@@ -9,7 +9,9 @@ const DEBUG: bool = true;
 pub fn intitalise() {
     dotenv().ok();
     //i realised that it is better to check this before hand
-    let _api = env::var("GEMINI_API_KEY").expect("There is No Api for GEMINI, You can Create One");
+    let _api = env::var("GEMINI_API_KEY").expect("There is No Api for GEMINI, You can Create One.");
+    let _id = env::var("GCP_PROJECT_ID")
+        .expect("There is No Project id for GEMINI, You can Create One in .env file");
     if DEBUG {
         text();
     }
@@ -21,7 +23,7 @@ fn text() {
         println!("API Key = {}", api)
     }
 }
-//this will check if file envirment file exists
+//this will check if file envirment file exists or not
 pub fn conform_env() {
     let path_to_env = Path::new(ENV);
     if DEBUG {
