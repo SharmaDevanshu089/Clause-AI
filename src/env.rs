@@ -18,7 +18,7 @@ pub fn conform_env() {
         let path_string = path_to_env.clone().to_string_lossy().into_owned();
         println!("Path to DOTENV is : {}", path_string);
     }
-    let returning_var = path_to_env.exists();
+    let returning_var = path_to_env.is_file();
     if !returning_var {
         println!(
             "There is no Envirment Variable found , Please Create one .env file with google's api key; Check Github On how to Do it . Exititng the Program"
