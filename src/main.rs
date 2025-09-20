@@ -1,3 +1,7 @@
-const DEBUG: bool = true;
 mod env;
-fn main() {}
+
+const DEBUG: bool = true;
+
+fn main() {
+    env::check_if_dot_env_exists();
+}
