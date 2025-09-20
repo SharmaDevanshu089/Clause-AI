@@ -8,6 +8,9 @@ dotenv = "0.15.0"
 #This is dont env this will load Envirment variable , specifically ".env" file it has api key.
 rocket = "0.5.1"
 #This will be our server for rust crate.
+google-generative-ai-rs = "0.2.1"
+dotenvy = "0.15"
+tokio = { version = "1", features = ["full"] }
 
 [default]
 address = "0.0.0.0"
