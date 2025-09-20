@@ -12,14 +12,15 @@ const DEBUG: bool = true;
 //this will initialise envirment variable
 pub fn intitalise() {
     dotenv().ok();
+    //i realised that it is better to check this before hand
+    let _api = env::var("GEMINI_API_KEY").expect("There is No Api for GEMINI, You can Create One");
     if DEBUG {
         text();
     }
 }
 fn text() {
     if DEBUG {
-        let api = env::var("GEMINI_API_KEY").expect("There is No Api for GEMINI");
-        println!("API Key = {}", api)
+        println!("API Key = {}", _api)
     }
 }
 //this will check if file envirment file exists
