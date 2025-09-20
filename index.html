@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clause AI - Your Personal Legal Assistant</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header class="site-header">
+        <div class="logo">📜 Clause AI</div>
+        <p class="subtitle">
+          Transforming complex legal documents into simple, understandable
+          insights.
+        </p>
+      </header>
+
+      <main class="content-area">
+        <div class="card input-card">
+          <h2>Analyze Your Document</h2>
+          <p>
+            Paste your legal text below. Clause AI will analyze it and provide a
+            clear breakdown.
+          </p>
+          <textarea
+            id="doc-input"
+            placeholder="e.g., Paste your entire rental agreement here..."
+          ></textarea>
+          <button id="analyze-button">
+            <span class="button-text">Analyze Now</span>
+            <div class="spinner" style="display: none"></div>
+          </button>
+        </div>
+
+        <div id="results-container" class="results-area" style="display: none">
+          <!-- JavaScript will populate the results here -->
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <p>Made with ❤️ by Devanshu</p>
+      </footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
