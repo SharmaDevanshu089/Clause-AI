@@ -1,7 +1,7 @@
 mod env;
-mod server;
-use google_generative_ai_rs::v1beta::VertexAI;
-
+use google_generative_ai_rs::v1::api::Client;
+use google_generative_ai_rs::v1::gemini::{Content, Part};
+use rocket::fs::FileServer;
 #[macro_use]
 extern crate rocket;
 
@@ -11,11 +11,20 @@ const LOCALE: &str = "asia-south1";
 #[launch]
 fn rocket() -> _ {
     env::conform_env();
-    server::setup_server()
+    setup_server()
 }
 fn get_ai_online() {
     let api_key = env::get_api_key();
     let project_id = env::get_id();
     let location = LOCALE;
-    let client = VertexAI::new(&project_id, &location, &api_key);
+    let client = Client::new(api_key);
+}
+#[post("/analyze")]
+pub fn analyze() -> &'static str {
+    "This is the AI response endpoint."
+}
+pub fn setup_server() -> rocket::Rocket<rocket::Build> {
+    rocket::build()
+        .mount("/", routes![analyze])
+        .mount("/", FileServer::from("static"))
 }
