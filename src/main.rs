@@ -6,15 +6,14 @@ use google_generative_ai_rs::v1beta::VertexAI;
 extern crate rocket;
 
 const DEBUG: bool = true;
-const LOCALE = "asia-south1";
+const LOCALE: &str = "asia-south1";
 
 #[launch]
 fn rocket() -> _ {
     env::conform_env();
     server::setup_server()
-
 }
-fn get_ai_online(){
+fn get_ai_online() {
     let api_key = env::get_api_key();
     let project_id = env::get_id();
     let location = LOCALE;
