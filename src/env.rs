@@ -20,7 +20,9 @@ pub fn intitalise() {
 }
 fn text() {
     if DEBUG {
-        println!("API Key = {}", _api)
+        let api =
+            env::var("GEMINI_API_KEY").expect("There is No Api for GEMINI, You can Create One");
+        println!("API Key = {}", api)
     }
 }
 //this will check if file envirment file exists
