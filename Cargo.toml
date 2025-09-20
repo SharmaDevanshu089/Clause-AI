@@ -8,3 +8,7 @@ dotenv = "0.15.0"
 #This is dont env this will load Envirment variable , specifically ".env" file it has api key.
 rocket = "0.5.1"
 #This will be our server for rust crate.
+
+[default]
+address = "0.0.0.0"
+port = 8080
