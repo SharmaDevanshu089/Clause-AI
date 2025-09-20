@@ -13,37 +13,27 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Please paste some text to analyze.");
       return;
     }
-
-    // Add user message to conversation history
     currentConversation.push({ role: "user", parts: [{ text: inputText }] });
 
     setLoadingState(true);
 
     try {
-      // NOTE: The prompt is handled by the backend. We just send the text.
       const response = await fetch("/analyze", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: inputText }), // Sending only the text
+        body: JSON.stringify({ text: inputText }),
       });
 
       if (!response.ok) {
         throw new Error(`Server responded with status: ${response.status}`);
       }
-
-      // The backend returns either a question for context or the full JSON analysis
       const rawResponse = await response.text();
-
-      // Check if the response is JSON or a plain text question
       try {
         const data = JSON.parse(rawResponse);
         displayResults(data);
-        // Reset conversation on full analysis
         currentConversation = [];
       } catch (e) {
-        // It's a plain text question from the AI
         displayInterimQuestion(rawResponse);
-        // Add AI's question to history
         currentConversation.push({
           role: "model",
           parts: [{ text: rawResponse }],
@@ -51,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     } catch (error) {
       displayError(error);
-      currentConversation = []; // Reset on error
+      currentConversation = [];
     } finally {
       setLoadingState(false);
     }
@@ -67,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
       spinner.style.display = "none";
       analyzeButton.disabled = false;
     }
-    docInput.value = ""; // Clear input after submission
+    docInput.value = "";
   }
 
   function displayInterimQuestion(text) {
@@ -84,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let html = "";
 
     // Flag
-    const flagText = data.flag || "[GREEN 🟢]: Standard Document"; // Default flag
+    const flagText = data.flag || "[GREEN 🟢]: Standard Document";
     const flagColor = flagText.includes("RED")
       ? "red"
       : flagText.includes("BLUE")
@@ -114,8 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       html += `</ul></div>`;
     }
-
-    // Jargon Buster
     if (data.jargon_buster && data.jargon_buster.length > 0) {
       html += `<div class="card"><h3>🧐 Jargon Buster</h3><ul>`;
       data.jargon_buster.forEach((item) => {
