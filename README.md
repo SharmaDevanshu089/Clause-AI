@@ -152,7 +152,3 @@ This project is licensed under the **MIT License**.
 You’re free to explore, use, and build on it.
 
 ***
-
-Would you like me to also create a **badges section** at the top (e.g., Rust version, Hackathon tag, MIT License) to make it look more like a professional open-source `README`?
-
-s
