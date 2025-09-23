@@ -4,7 +4,7 @@
 
 
 ***
-
+> ![Status](https://img.shields.io/badge/status-paused-orange) **Notice:** This project is currently paused due to pending updates required by the Gemini API Rust crate. Development will resume once the library stabilizes.
 ## Introduction
 
 Hey there! I'm **Devanshu**, a developer passionate about leveraging technology for social good.
