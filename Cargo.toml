@@ -7,7 +7,7 @@ edition = "2024"
 google-generative-ai-rs = "0.2"
 rocket = { version = "0.5", features = ["json"] }
 serde = { version = "1.0", features = ["derive"] }
-dotenvy = "0.15"
+dotenv = "0.15"
 tokio = { version = "1", features = ["full"] }
 
 [default]
