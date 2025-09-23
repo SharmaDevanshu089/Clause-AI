@@ -1,99 +1,158 @@
-# Clause AI — My Submission for the Google Gen AI Exchange Hackathon 📜🤖
+# Clause AI — Demystifying Legal Jargon with Gen AI 📜🤖
 
-Hey there! I'm Devanshu, and this is Clause AI. I built this project for the Google Gen AI Exchange Hackathon to tackle a problem I think we've all faced: staring at a legal document and feeling compleatly overwhelmed. This tool is my attempt at using the power of generative AI to make that experience a little less stressful for everyone.
+### My Submission for the Google Gen AI Exchange Hackathon
 
-### ✨ A Quick Note on the Code ✨
 
-In a world where you can ask an AI to write code for you, I wanted to make something with my own two hands. The entire Rust backend for Clause AI is 100% human-written code—by ME. I believe there's a certain craft to programming, and building this project was my way of diving deep into Rust's powerful features. I wanted to make sure every line was deliberate, and the whole thing was built on a solid, secure foundation that I understood completely.
+***
+
+## Introduction
+
+Hey there! I'm **Devanshu**, a developer passionate about leveraging technology for social good.
+This is **Clause AI**, an intelligent legal co-pilot engineered to tackle a universal problem:
+**the intimidating complexity of legal documents**.
+
+Clause AI is my effort to harness the power of **generative AI** to empower everyday users by bringing clarity to contracts, agreements, and the dreaded wall of fine print.
+
+***
+
+## ✨ A Commitment to Craftsmanship ✨
+
+In an era where AI-generated code is increasingly common, I chose a different path.
+
+- The **entire backend of Clause AI** is written in **Rust**, completely handcrafted by me.
+- This decision ensures a solid, secure foundation without reliance on "black-box" AI-generated code for a mission-critical task.
+- For me, programming is an art form — this project was about precision, robustness, and transparency.
+
+***
 
 ## 🚀 The Problem
 
-We've all been there, right? You're about to sign a lease for a new apartment or click "I agree" on a new app, and you're faced with a wall of text that makes no sense. It's intimidating, and it often feels like you have no choice but to sign and hope for the best. This isnt fair, and it's a problem I wanted to try and solve.
+We all know the feeling:
 
-## ✨ My Solution
+- Signing a **lease contract** without fully grasping the legal obligations.
+- Struggling through a dense, **terms of service** agreement.
+- Feeling pressured to sign **freelance contracts** full of jargon.
 
-I built Clause AI to be a friendly translator for that confusing legal language. You can paste any legal text into the app, and it uses Google's powerful AI to give you a simple, easy-to-understand breakdown. The goal isn't to replace lawyers, but to give regular people a first-pass tool to feel more confident and informed about what they're signing. Its a REALLY useful tool.
+These documents are often designed to overwhelm and intimidate, creating an **unfair information asymmetry**.
+This problem demands a technological solution.
 
-## 🎯 Here's What It Can Do
+***
 
-Color-Coded Flags: It gives you an instant vibe-check on the document with a RED (Heads up, this is restrictive!), BLUE (Looks fair and balanced!), or GREEN (Pretty standard stuff!) flag.
+## ✨ The Solution: An Intelligent Legal Co-Pilot
 
-Smart Context: The app is designed to get the full story. It will ask if you're the "tenant" or the "landlord" before giving an analysis, so teh advice is tailored to you.
+Clause AI serves as a **first-pass tool** to help users cut through legal complexity.
 
-Simple Summaries: It boils down the entire document into a few simple bullet points.
+- You paste any legal text.
+- A **custom-configured Google Gemini model** processes it.
+- You get a **clear, contextual, and actionable summary** — in plain English.
 
-Key Info Extraction: It pulls out the important stuff like names, dates, and dollar amounts so you can see them at a glance.
+The goal isn’t to replace professional lawyers but to **empower** individuals to feel informed, confident, and secure.
 
-Jargon Buster: Finds those fancy legal words and tells you what they actually mean in plain English.
+***
 
-## 🛠️ My Tech Stack & How It Works
+## 🎯 Core Features
 
-I wanted to use this hackathon to learn and build with powerful tools. Here’s a peek under the hood:
+- **At-a-Glance Clause Flagging**
+    - Documents are flagged with:
+        - 🔴 **Red** = Highly Restrictive / Warning
+        - 🔵 **Blue** = Fair \& Balanced
+        - 🟢 **Green** = Standard / Benign
+- **Context-Aware Analysis**
+    - Tailored insights based on your role (e.g., *Tenant* vs *Landlord*).
+- **Executive Summaries**
+    - The entire document distilled into **concise, human-readable bullet points**.
+- **Key Entity Extraction**
+    - Automatically pulls out **names, dates, monetary values, and locations**.
+- **Jargon Buster**
+    - Translates intimidating legal terms into **plain English**.
 
-Backend Language: Rust
-I went with Rust because I love its focus on performance and safety. Building the server with it was a great challenge and ensures the app is fast and reliable.
+***
 
-Web Server: actix-web Crate
-To get the server up and running, I used the popular actix-web crate. It's the backbone of the project, listening for requests from the browser and sending back the AI's analysis.
+## 🛠️ Architecture \& Tech Stack
 
-Talking to the AI: google-generative-ai-rs Crate
-This crate was the key to connecting my app to the Google Gemini Pro API. It makes it really straightforward to send my detailed prompt and the user's text to the AI.
+- **Backend Language:** Rust — chosen for performance, memory safety, and fearless concurrency.
+- **Web Framework:** Actix-web — a high-performance, pragmatic Rust web framework.
+- **AI Integration:** [`google-generative-ai-rs`](https://crates.io/) — Rust crate bridging the app with Google Gemini Pro API.
+- **Secret Management:** [`dotenvy`](https://crates.io/crates/dotenvy) — securely loads API keys from `.env`.
+- **Frontend:** Simple **vanilla HTML, CSS, and JavaScript** — lightweight and focused on usability.
 
-Keeping Secerts Safe: dotenvy Crate
-To make sure my Google AI API key wasn't just sitting in the code, I used the dotenvy crate. It loads the key from a local .env file that I've kept out of version control.
+***
 
-Frontend: Simple HTML, CSS, & JavaScript
-I kept the frontend simple to focus on the core AI features. A basic webpage sends the user's text to my Rust backend and displays the results.
+## 🛡️ Security-First Architecture
 
-### 🛡️ A Quick Note on Security
+Security was non-negotiable in Clause AI’s design.
 
-A big part of this project was making sure it was secure. Rust helps a lot with its memory safety features, which is awesome. But the most important security decision was the architecture: the Google Gemini API key stays on my Rust server and is never, ever sent to the user's browser. This means no one can steal it from the frontend code.
+- **Rust memory safety** eliminates many common vulnerabilities.
+- Credentials (**API keys and Project IDs**) remain exclusively on the server.
+- No secrets are exposed to the browser, mitigating the risk of client-side key theft.
 
-## 🎬 Demo Video
+***
 
-Check out the 3-minute video I made to see Clause AI in action!
+## 🔧 Run It Yourself
 
-(I will add Later)
+### Prerequisites
 
-## 🔧 Want to Run It Yourself?
+- Rust + Cargo installed
+- A Google AI **API Key** and **Project ID**
+- A modern web browser
 
-If you want to get this running on your own machine, here’s how.
 
-### You'll Need:
+### 1. Backend (Rust Server)
 
-Rust and Cargo
+```bash
+# Clone the repository
+git clone https://github.com/SharmaDevanshu089/Clause-AI.git
+cd Clause-AI
 
-A web browser
+# Create your .env file
+echo 'GEMINI_API_KEY="YOUR_GOOGLE_AI_API_KEY"' > .env
+echo 'PROJECT_ID="YOUR_GOOGLE_PROJECT_ID"' >> .env
 
-A Google AI API key
+# Run the server
+cargo run --release
+```
 
-### Backend (The Rust Server)
+The server runs on:
+[http://127.0.0.1:8000](http://127.0.0.1:8000)
 
-Clone the repo:
+***
 
-Set up your secrets:
-Create a file named .env in the main folder and add your API key and Project ID:
+### 2. Frontend (Webpage)
 
-Run the server:
+- Open `index.html` in your web browser.
+- It will automatically connect to your running local server.
 
-It should now be running at http://127.0.0.1:8080.
+***
 
-### Frontend (The Webpage)
+## 🚧 Current Status \& Future Roadmap
 
-Just open the index.html file in your browser.
+- ✅ **Core Functionality:** Fully operational text analysis engine.
+- ⚠️ **Current API:** Uses a simple text-based exchange. Planned migration to structured **JSON API** once the Rust Gemini crate fully supports it.
 
-It will automatically connect to your local server. Have fun!
+**Planned Roadmap:**
 
-## 🏆 My Submission for the Google Gen AI Exchange Hackathon
+- Migrate to **JSON-native API** for seamless data flow.
+- Build a **video demo** showcasing Clause AI capabilities.
+- Expand context-awareness beyond tenant/landlord to multiple legal roles.
 
-Project Name: Clause AI
+***
 
-Creator: Devanshu Sharma ([https://github.com/SharmaDevanshu089/])
+## 🏆 Hackathon Submission Details
 
-Focus Area: Social Good
+- **Project Name:** Clause AI
+- **Creator:** Devanshu Sharma ([GitHub Profile](https://github.com/SharmaDevanshu089/))
+- **Focus Area:** Social Good
+- **Goal:** To use **technology as a democratizing force** by addressing legal information asymmetry and promoting fairness, equity, and user confidence.
 
-My Goal for This Project: I believe that technology should empower people. My goal with Clause AI was to use the incredible power of Google's generative AI to tackle a real-world problem and promote a bit more fairness and digital equity. I wanted to build something practical that could genuinely help someone feel less anxious about a major life decision.
+***
 
 ## 📜 License
 
-This project is licensed under the MIT License. Feel free to check out the code!
+This project is licensed under the **MIT License**.
+You’re free to explore, use, and build on it.
+
+***
+
+Would you like me to also create a **badges section** at the top (e.g., Rust version, Hackathon tag, MIT License) to make it look more like a professional open-source `README`?
+
+s
